@@ -11,8 +11,9 @@ describe Footman do
 
   describe "#attack!" do
     it "should do deal 10 (AP) damage to the enemy unit" do
-      enemy = Footman.new
+      enemy = Footman.new #created an enemy in a way a rig
       expect(enemy).to receive(:damage).with(10)
+      # enemy.damage(10)
       @footman.attack!(enemy)
     end
   end
@@ -25,3 +26,4 @@ describe Footman do
   end
 
 end
+

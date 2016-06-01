@@ -1,6 +1,6 @@
 # http://classic.battle.net/war3/human/units/footman.shtml
 
-class Footman 
+class Footman < Unit
 
 
   attr_reader :health_points, :attack_power
@@ -13,13 +13,29 @@ class Footman
     
   end
 
-  def attack (enemy)
-    enemy.attack(10)
+  # def attack!(enemy)
+  #   enemy.damage(10)
   
+  # end
+
+  # # def damage
+  # #   health_points -= attack_power
+
+  # # end
+
+  # def damage(damage_value)
+
+  #   @health_points -= damage_value
+
+  # end
+
+  def attack!(enemy)
+    enemy.damage(attack_power)
   end
 
-  def damage
-    health_points -= attack_power
+  def damage(attack_power)
+    
+    @health_points -= attack_power
   end
 
-end
+end 
