@@ -8,8 +8,9 @@ class Footman < Unit
   def initialize
     # Need to default the 2 instance variables here
     # Also also give code outside this class access to these variables (via attr_reader, attr_writer or attr_accessor)
-    @health_points = 60
-    @attack_power = 10  
+    # @health_points = 60
+    # @attack_power = 10  
+    super(60, 10)
     
   end
 
@@ -30,12 +31,21 @@ class Footman < Unit
   # end
 
   def attack!(enemy)
-    enemy.damage(attack_power)
+    case enemy
+    when Barracks
+      enemy.damage(attack_power / 2)
+    else
+      super
+    end
   end
 
   def damage(attack_power)
     
     @health_points -= attack_power
+  end
+
+  def dead?
+    @health_points <= 0
   end
 
 end 
