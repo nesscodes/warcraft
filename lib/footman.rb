@@ -3,7 +3,7 @@
 class Footman < Unit
 
 
-  attr_reader :health_points, :attack_power
+
 
   def initialize
     # Need to default the 2 instance variables here
@@ -14,38 +14,17 @@ class Footman < Unit
     
   end
 
-  # def attack!(enemy)
-  #   enemy.damage(10)
-  
-  # end
 
-  # # def damage
-  # #   health_points -= attack_power
 
-  # # end
-
-  # def damage(damage_value)
-
-  #   @health_points -= damage_value
-
-  # end
-
-  def attack!(enemy)
-    case enemy
+  def attack!(enemy_unit)
+    case enemy_unit
     when Barracks
-      enemy.damage(attack_power / 2)
+      enemy_unit.damage(attack_power / 2)
     else
-      super
+      super 
     end
   end
 
-  def damage(attack_power)
-    
-    @health_points -= attack_power
-  end
 
-  def dead?
-    @health_points <= 0
-  end
 
 end 

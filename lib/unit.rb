@@ -14,12 +14,13 @@ class Unit
   end
 
   def attack!(enemy_unit)
-    # damage = unit(3)
-    # case enemy_unit
-    # when Barracks then @enemy_unit.damage(@attack_power / 2)
-    # else
-      enemy_unit.damage(@attack_power)
-    # end
+
+    if enemy_unit.damage(attack_power)
+    end
+  end
+
+  def dead?
+    health_points <= 0
   end
 
 end
